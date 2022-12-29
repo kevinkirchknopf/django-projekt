@@ -1,0 +1,28 @@
+{% load static %}
+{%load embed_video_tags%}
+<html>
+    <head>
+        <title>SZANTO MOVIES</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="icon" href="{% static 'image/title.png' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body id="bg" style="background-image: url('{% static "image/bgimage2.jpg"%}')";>
+    <div class="page-header">
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus plus-icon"></span></a>
+        {% endif %}
+        <center><h1><a href="/"><span id="half-white">SZANTO</span> MOVIES</a></h1></center>
+<div class="center-main">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
